@@ -1,0 +1,34 @@
+--configuration file of conky for the conky-i3bar script
+
+conky.config = {
+
+out_to_x = false ,
+own_window = false ,
+out_to_console = true , 
+
+update_interval = 1 ,
+total_run_times = 0 ,
+short_units = true ,
+if_up_strictness = "address" , 
+use_spacer = "left" ,
+cpu_avg_samples = 2, 
+
+color0 = 'ffffff' ,
+color1 = 'C90000'
+
+}
+
+
+
+conky.text = [[
+[{"full_text":"${font FontAwesome} $font${downspeed enp1s0} ${font FontAwesome} $font${upspeed enp1s0}","color":"\#00ff15"},
+ {"full_text":"/home/jack ${fs_free /home/jack} Free","color":"\#ff4d00"},
+ {"full_text":"/root ${fs_free /} Free","color":"\#ff4d00"},
+ {"full_text":"Cpu1 ${cpu cpu1} %","color":"\#ff0000"},
+ {"full_text":"Cpu2 ${cpu cpu2} %","color":"\#ff0000"},
+ {"full_text":"Cpu3 ${cpu cpu3} %","color":"\#ff0000"},
+ {"full_text":"Cpu4 ${cpu cpu4} %","color":"\#ff0000"},
+ {"full_text":"Ram:${mem}/${memmax} $memperc %","color":"\#00fff2"},
+ {"full_text":"${time %H:%M|%d-%m-%Y}","color":"\#ffffff"},
+ {"full_text":"${font FontAwesome} ${font}$battery $battery_time","color":"\#c9ff00"}],
+]]
