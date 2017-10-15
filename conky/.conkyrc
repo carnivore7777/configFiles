@@ -9,12 +9,7 @@ out_to_console = true ,
 update_interval = 1 ,
 total_run_times = 0 ,
 short_units = true ,
-if_up_strictness = "address" , 
-use_spacer = "left" ,
-cpu_avg_samples = 2, 
-
-color0 = 'ffffff' ,
-color1 = 'C90000'
+cpu_avg_samples = 2
 
 }
 
