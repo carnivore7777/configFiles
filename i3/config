@@ -24,7 +24,7 @@ bindsym $mod+Shift+q kill
 hide_edge_borders both
 
 #lock screen
-bindsym $mod+Shift+x exec i3lock --color 330066
+bindsym $mod+Shift+x exec i3lock --color 000000
 
 # change focus
 bindsym $mod+j focus left
@@ -82,7 +82,7 @@ bindsym $mod+c focus child
 set $workspace1 "1: &#xf269;"
 set $workspace2 "2: &#xf120;"
 set $workspace3 "3: &#xf29c;"
-set $workspace4 "4: &#xf29c;"
+set $workspace4 "4: "
 set $workspace5 "5: &#xf29c;"
 set $workspace6 "6: &#xf17b;"
 set $workspace7 "7: VBox &#xf1cb;"
@@ -112,7 +112,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 #default workspaces
-assign [class="okular"] $workspace5
+assign [class="okular"] $workspace4
 assign [class="jetbrains-studio"] $workspace6 
 assign [class="VirtualBox"] $workspace7
 
@@ -191,7 +191,6 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 
 #key-bindings
-bindsym $mod+shift+p exec systemctl poweroff
 bindsym $mod+Alt_L exec /home/jack/code-ground/scripts/lang-toggle.sh 
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+a exec android-studio 
@@ -200,5 +199,6 @@ bindsym $mod+Shift+a exec android-studio
 bindsym $mod+d exec rofi -show run -font "System San Franscisco Display 12" -width 100 -eh 2 -padding 700 -lines 5 
 
 #startup
+exec i3-msg 'exec firefox; workspace $workspace2; exec xfce4-terminal; workspace $workspace1'
 exec_always feh --bg-scale pictures/snow.jpg
 exec_always compton -f --opacity-rule 95:'name = "rofi"' --opacity-rule 91:'class_g = "xfce4-terminal"' 
