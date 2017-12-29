@@ -1,0 +1,30 @@
+conky.config = {
+
+out_to_x = false ,
+own_window = false ,
+out_to_console = true , 
+
+update_interval = 1 ,
+total_run_times = 0 ,
+short_units = true ,
+cpu_avg_samples = 2
+
+}
+
+
+
+conky.text = [[
+[{"full_text":"(E)${font FontAwesome} $font${downspeed enp1s0} ${font FontAwesome} $font${upspeed enp1s0}","color":"\#00ff15"},
+ {"full_text":"${if_up wlp2s0}(W) ${font FontAwesome} $font${downspeed wlp2s0} ${font FontAwesome} $font${upspeed wlp2s0}$endif","color":"\#00ff15"},
+ {"full_text":"${font FontAwesome} $font${pa_sink_volume}%","color":"\#00fff2"},
+ {"full_text":"${font FontAwesome} ${font}/jack ${fs_used /home/jack}/${fs_size /home/jack}","color":"\#ff4d00"},
+ {"full_text":"${font FontAwesome} ${font}/root ${fs_used /}/${fs_size /}","color":"\#ff4d00"},
+ {"full_text":"Cpu1 ${cpu cpu1}%","color":"\#ff0000"},
+ {"full_text":"Cpu2 ${cpu cpu2}%","color":"\#ff0000"},
+ {"full_text":"Cpu3 ${cpu cpu3}%","color":"\#ff0000"},
+ {"full_text":"Cpu4 ${cpu cpu4}%","color":"\#ff0000"},
+ {"full_text":"Ram:${mem}/${memmax} $memperc%","color":"\#00fff2"},
+ {"full_text":"${font FontAwesome} ${font}${time %H:%M}","color":"\#d814ff"},
+ {"full_text":"${font FontAwesome} ${font}${time %d-%m-%Y}","color":"\#d814ff"},
+ {"full_text":"${font FontAwesome} ${font}$battery $battery_time","color":"\#00ff15"}],
+]]
