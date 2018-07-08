@@ -17,6 +17,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+#switching from the current workspace to the previous one
+workspace_auto_back_and_forth yes
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -56,16 +59,11 @@ bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-#split toggle 
-bindsym $mod+t split toggle
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# change container layout (tabbed)
+bindsym $mod+t layout tabbed
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -76,11 +74,8 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-bindsym $mod+c focus child
-
 #disable focus follows mouse
-focus_follows_mouse no
+focus_follows_mouse yes
 
 #workspaces names
 set $workspace1 "1: &#xf269;"
@@ -117,17 +112,27 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace 10
 
+#assigning workspaces to displays
+workspace $workspace5 output HDMI1
+workspace $workspace6 output HDMI1
+workspace $workspace4 output HDMI1
+workspace $workspace7 output HDMI1
+
+#moving containers and workspaces to the second screen
+bindsym $mod+w move workspace to output HDMI1
+bindsym $mod+c move workspace to output primary
+
 #default workspaces
-assign [class="okular"] $workspace4 #pdf reader
+assign [class="okular"] workspace $workspace4
+assign [class="vlc"] workspace $workspace6 #video player
 assign [class="jetbrains-studio"] $workspace6 #android studio 
 assign [class="VirtualBox"] $workspace7 #virtualbox
 assign [class="libreoffice"] $workspace5 
+assign [class="Wireshark"] $workspace5 
 
 #default actions for windows
 for_window [class="Tk"] floating enable #for windows that tkinter produces
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -160,12 +165,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-set $bg-color 	         #000000
+set $bg-color 	         #ffffff
 set $inactive-bg-color   #313131
-set $text-color          #c90000
+set $text-color          #0000ff
 set $inactive-text-color #676E7D
-set $urgent-bg-color     #00fff2
-set $urgent-text-color   #000000
+set $urgent-bg-color     #c90000
+set $urgent-text-color   #ffffff
 
 # window colors
 #                       border              background          text                 indicator
@@ -179,11 +184,11 @@ client.urgent           $urgent-bg-color    $urgent-bg-color    $urgent-text-col
 bar {
         status_command $HOME/bin/conky-i3bar 
 		separator_symbol " "
-		font pango:FontAwesome 12
+		font pango:FontAwesome 10
 	    colors {
-			background $bg-color
+			background #000000			 
 			#                  border             background         text
-			focused_workspace  $bg-color          $bg-color          $text-color
+			focused_workspace  #000000			  #000000			 $text-color
 			inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
 			urgent_workspace   $urgent-bg-color   $urgent-bg-color   $urgent-text-color   
 		}
@@ -213,4 +218,4 @@ bindsym $mod+d exec rofi -show run -font "System San Franscisco Display 12" -wid
 #startup
 exec --no-startup-id i3-msg 'exec firefox; workspace $workspace2; exec xfce4-terminal; exec rifle python-ebooks/Learning\ Python\ 5th\ Ed\ 2013/Learning\ Python\ 5th\ Ed\ 2013.pdf; workspace $workspace1'
 exec_always feh --bg-scale pictures/iceland.jpg
-exec_always compton -f --opacity-rule 95:'name = "rofi"' --opacity-rule 91:'class_g = "xfce4-terminal"' 
+exec_always compton -f --opacity-rule 93:'name = "rofi"' --opacity-rule 91:'class_g = "xfce4-terminal"' 
