@@ -15,7 +15,7 @@ font pango:System San Franscisco Display 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec tilix
 
 #switching from the current workspace to the previous one
 workspace_auto_back_and_forth yes
@@ -119,8 +119,9 @@ workspace $workspace4 output HDMI1
 workspace $workspace7 output HDMI1
 
 #moving containers and workspaces to the second screen
-bindsym $mod+w move workspace to output HDMI1
+bindsym $mod+w move workspace to output left 
 bindsym $mod+c move workspace to output primary
+bindsym $mod+n move container to output HDMI1
 
 #default workspaces
 assign [class="okular"] workspace $workspace4
@@ -216,6 +217,6 @@ bindsym $mod+Shift+b exec /home/jack/code-ground/python/shutdown.py
 bindsym $mod+d exec rofi -show run -font "System San Franscisco Display 12" -width 100 -eh 2 -padding 700 -lines 5 
 
 #startup
-exec --no-startup-id i3-msg 'exec firefox; workspace $workspace2; exec xfce4-terminal; exec rifle python-ebooks/Learning\ Python\ 5th\ Ed\ 2013/Learning\ Python\ 5th\ Ed\ 2013.pdf; workspace $workspace1'
+exec --no-startup-id i3-msg 'exec firefox; workspace $workspace2; exec tilix; exec rifle python-ebooks/Learning\ Python\ 5th\ Ed\ 2013/Learning\ Python\ 5th\ Ed\ 2013.pdf; workspace $workspace1'
 exec_always feh --bg-scale pictures/iceland.jpg
 exec_always compton -f --opacity-rule 93:'name = "rofi"' --opacity-rule 91:'class_g = "xfce4-terminal"' 
