@@ -219,4 +219,4 @@ bindsym $mod+d exec rofi -show run -font "System San Franscisco Display 12" -wid
 #startup
 exec --no-startup-id i3-msg 'exec firefox; workspace $workspace2; exec tilix; exec rifle python-ebooks/Learning\ Python\ 5th\ Ed\ 2013/Learning\ Python\ 5th\ Ed\ 2013.pdf; workspace $workspace1'
 exec_always feh --bg-scale pictures/iceland.jpg
-exec_always compton -f --opacity-rule 93:'name = "rofi"' --opacity-rule 91:'class_g = "xfce4-terminal"' 
+exec_always compton -f --opacity-rule 93:'name = "rofi"' --opacity-rule 91:'class_g = "tilix"' 
