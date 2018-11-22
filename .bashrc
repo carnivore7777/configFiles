@@ -5,10 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export PATH=$PATH:/home/carnivore/bin:/home/carnivore/code-ground/scripts:/home/carnivore/code-ground/java
+export PATH=$PATH:/home/carnivore/bin:/home/carnivore/code-ground/scripts
 
 
-alias j='java'
 alias r='ranger'
 alias ls='ls -A --color=auto'
 alias less='/usr/share/vim/vim80/macros/less.sh'
