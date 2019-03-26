@@ -16,7 +16,8 @@ conky.config = {
 conky.text = [[
   [
 	{      
-	  	"full_text": "  up: ${upspeed enp1s0} down:${downspeed enp1s0}  ${if_up wlp2s0}up: ${upspeed wlp2s0} down: ${downspeed wlp2s0}$endif",
+	  	"full_text": "  up: ${upspeed enp1s0} down:${downspeed enp1s0}  
+		${if_up wlp2s0}up: ${upspeed wlp2s0} down: ${downspeed wlp2s0}$endif",
       		"color": "\#fdf6e3",
       		"background": "\#2aa198",
       		"separator": true,
