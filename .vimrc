@@ -54,6 +54,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Valloric/YouCompleteMe'
 
 
 call vundle#end()
@@ -86,3 +87,5 @@ noremap <silent> <Leader>6 :buffer 6<CR>
 noremap <silent> <Leader>7 :buffer 7<CR>
 "keyboard shortcut to close a buffer
 noremap <silent> <Leader>q :bw<CR>
+"YouCompleteMe configs
+let g:ycm_autoclose_preview_window_after_completion = 1
