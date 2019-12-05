@@ -1,0 +1,80 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+--[[
+Conky, a system monitor, based on torsmo
+
+Any original torsmo code is licensed under the BSD license
+
+All code written since the fork of torsmo is licensed under the GPL
+
+Please see COPYING for details
+
+Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+Copyright (c) 2005-2012 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+All rights reserved.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+conky.config = {
+    alignment = 'top_right',
+    background = false,
+    cpu_avg_samples = 2,
+    default_color = '#00f5fc',
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'DejaVu Sans Mono:size=12',
+    gap_x = 5,
+    gap_y = 0,
+    net_avg_samples = 2,
+    no_buffers = true,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_argb_value = 230,
+    own_window_argb_visual = true,
+    own_window_type = 'desktop',
+    update_interval = 1.0,
+    use_spacer = 'none',
+	color7 = 'ffffff',
+	color1 = '0000cc',
+	color2 = '00ac00'
+}
+
+conky.text = [[
+${color #00ff00}GPU util:${nvidia gpuutil}% ${nvidiabar gpuutil}
+${color #00ff00}GPU freq:${nvidia gpufreq} MHz
+${color #00ff00}GPU temp:${nvidia temp}°C
+${color #0000cc}CPU1:${cpu cpu1}% CPU2:${cpu cpu2}% CPU3:${cpu cpu3}% CPU4:${cpu cpu4}%
+${color #0000cc}CPU1:${execi 5 sensors|grep 'Core 0'|awk '{print $3}'}°C
+${color #0000cc}CPU2:${execi 5 sensors|grep 'Core 1'|awk '{print $3}'}°C
+${color grey}Frequency (in GHz):$color $freq_g
+${color grey}RAM Usage:$color $mem/$memmax  $memperc% 
+${color grey}Cached:$color $cached \
+${color grey}Total mem:$color $memwithbuffers
+${goto 15}$color0${hr 1}
+${goto 15}$color1 CPU 1$color2 ${cpubar cpu1}
+${goto 15}${cpugraph cpu1 40,400 00ffff 00ffff}
+${goto 15}$color1 CPU 2$color2 ${cpubar cpu2}
+${goto 15}${cpugraph cpu2 40,400 00ffff 00ffff}
+${goto 15}$color1 CPU 3$color2 ${cpubar cpu3}
+${goto 15}${cpugraph cpu3 40,400 00ffff 00ffff}
+${goto 15}$color1 CPU 4$color2 ${cpubar cpu4} 
+${goto 15}${cpugraph cpu4 40,400 00ffff 00ffff}
+${goto 15}$color0${hr 1}
+${color grey}File systems:
+ / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
+${color grey}Networking:
+Ether -> up:${upspeed enp1s0} down:${downspeed enp1s0}  
+Wifi  -> ${if_up wlp2s0}up:${upspeed wlp2s0} down:${downspeed wlp2s0}$endif
+]]
