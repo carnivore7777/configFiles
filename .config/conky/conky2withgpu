@@ -26,7 +26,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 conky.config = {
-    alignment = 'top_right',
     background = false,
     cpu_avg_samples = 2,
     default_color = '#00f5fc',
@@ -35,15 +34,15 @@ conky.config = {
     draw_shades = false,
     use_xft = true,
     font = 'DejaVu Sans Mono:size=12',
-    gap_x = 5,
-    gap_y = 0,
+    gap_x = 10,
+    gap_y = 19,
     net_avg_samples = 2,
     no_buffers = true,
     own_window = true,
     own_window_class = 'Conky',
-    own_window_argb_value = 230,
+    own_window_argb_value = 180,
     own_window_argb_visual = true,
-    own_window_type = 'desktop',
+    own_window_type = 'normal',
     update_interval = 1.0,
     use_spacer = 'none',
 	color7 = 'ffffff',
@@ -54,27 +53,25 @@ conky.config = {
 conky.text = [[
 ${color #00ff00}GPU util:${nvidia gpuutil}% ${nvidiabar gpuutil}
 ${color #00ff00}GPU freq:${nvidia gpufreq} MHz
-${color #00ff00}GPU temp:${nvidia temp}°C
-${color #0000cc}CPU1:${cpu cpu1}% CPU2:${cpu cpu2}% CPU3:${cpu cpu3}% CPU4:${cpu cpu4}%
-${color #0000cc}CPU1:${execi 5 sensors|grep 'Core 0'|awk '{print $3}'}°C
-${color #0000cc}CPU2:${execi 5 sensors|grep 'Core 1'|awk '{print $3}'}°C
+${color #00ff00}GPU temp:${nvidia temp}°C	${color #ff0000}${nvidia fanlevel}% 
+
+${color #0070cc}CPU1:${cpu cpu1}%  CPU2:${cpu cpu2}%  CPU3:${cpu cpu3}%  CPU4:${cpu cpu4}%   
+${color #0070cc}CPU5:${cpu cpu5}%  CPU6:${cpu cpu6}%  CPU7:${cpu cpu7}%  CPU8:${cpu cpu8}%   
+${color #0070cc}CPU9:${cpu cpu9}%  CPU10:${cpu cpu10}% CPU11:${cpu cpu11}% CPU12:${cpu cpu12}%  
+${color #0070cc}CPU13:${cpu cpu13}% CPU14:${cpu cpu14}% CPU15:${cpu cpu15}% CPU16:${cpu cpu16}% 
+
+${color #0070cc}CPU  : $cpu %
+${color #0070cc}CpuT : ${execi 4 sensors | grep "Tdie" | awk '{print $2}'}
+
 ${color grey}Frequency (in GHz):$color $freq_g
+
 ${color grey}RAM Usage:$color $mem/$memmax  $memperc% 
 ${color grey}Cached:$color $cached \
 ${color grey}Total mem:$color $memwithbuffers
-${goto 15}$color0${hr 1}
-${goto 15}$color1 CPU 1$color2 ${cpubar cpu1}
-${goto 15}${cpugraph cpu1 40,400 00ffff 00ffff}
-${goto 15}$color1 CPU 2$color2 ${cpubar cpu2}
-${goto 15}${cpugraph cpu2 40,400 00ffff 00ffff}
-${goto 15}$color1 CPU 3$color2 ${cpubar cpu3}
-${goto 15}${cpugraph cpu3 40,400 00ffff 00ffff}
-${goto 15}$color1 CPU 4$color2 ${cpubar cpu4} 
-${goto 15}${cpugraph cpu4 40,400 00ffff 00ffff}
-${goto 15}$color0${hr 1}
+
 ${color grey}File systems:
  / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
 ${color grey}Networking:
-Ether -> up:${upspeed enp1s0} down:${downspeed enp1s0}  
-Wifi  -> ${if_up wlp2s0}up:${upspeed wlp2s0} down:${downspeed wlp2s0}$endif
+# Ether -> up:${upspeed enp1s0} down:${downspeed enp1s0}  
+Wifi  -> ${if_up wlp41s0}up:${upspeed wlp41s0} down:${downspeed wlp41s0}$endif
 ]]
